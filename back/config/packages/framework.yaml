@@ -1,0 +1,10 @@
+framework:
+  secret: '%env(APP_SECRET)%'
+  http_method_override: false
+  handle_all_throwables: true
+  serializer:
+    enable_attributes: true
+  http_client:
+    default_options:
+      headers:
+        User-Agent: 'Symfony Messenger'

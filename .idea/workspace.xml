@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d567e425-58c1-449d-9278-09ed5e878507" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/back/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="f6bf8f04-b588-4eaf-8331-21b09dad0265" />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="PHP File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/back/vendor/symfony/console/Command/Command.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/back/vendor/symfony/framework-bundle/Kernel/MicroKernelTrait.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="tms-ia-worker_low:latest">
+    <include_path>
+      <path value="$PROJECT_DIR$/back/vendor/composer" />
+      <path value="$PROJECT_DIR$/back/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/back/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/back/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/back/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/back/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/back/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/back/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/back/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/back/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/back/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/back/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/back/vendor/clue/ndjson-react" />
+      <path value="$PROJECT_DIR$/back/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/back/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/back/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/back/vendor/react/child-process" />
+      <path value="$PROJECT_DIR$/back/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php84" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/back/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/back/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/back/vendor/php-amqplib/php-amqplib" />
+      <path value="$PROJECT_DIR$/back/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/back/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/back/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/back/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/back/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/back/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/profiler-pack" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/amqp-messenger" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="357bR2bkKBkjV14HaxMvCIl23X5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.docker-compose.yml.api: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.rabbitmq: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "PHPUnit.CustomerEmailTest.executor": "Run",
+    "PHPUnit.Domain.executor": "Run",
+    "PHPUnit.Unit.executor": "Run",
+    "PHPUnit.tests.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
+    "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/hugo/Bureau/perso-www/Linksy2/back/config/routes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/snap/phpstorm/567/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/back/config/routes" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/scraper" />
+      <recent name="$PROJECT_DIR$/docker/env" />
+      <recent name="$PROJECT_DIR$/docker" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/deployments" />
+      <recent name="$PROJECT_DIR$/docker/prod" />
+      <recent name="$PROJECT_DIR$/docker/env" />
+      <recent name="$PROJECT_DIR$/back/config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.tests">
+    <configuration name="CustomerEmailTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="linksy-api:latest" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="App\Tests\Unit\Domain\CustomerEmailTest" file="$PROJECT_DIR$/back/tests/Unit/Domain/CustomerEmailTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Domain" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="linksy-api:latest" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner directory="$PROJECT_DIR$/back/tests/Unit/Domain" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/back/tests/Unit" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="linksy-api:latest" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner directory="$PROJECT_DIR$/back/tests" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.api: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="api" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.rabbitmq: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="rabbitmq" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.Domain" />
+        <item itemvalue="PHPUnit.Unit" />
+        <item itemvalue="PHPUnit.CustomerEmailTest" />
+        <item itemvalue="Docker.docker-compose.yml.api: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.rabbitmq: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.27397.112" />
+        <option value="bundled-php-predefined-a98d8de5180a-b35feea871ed-com.jetbrains.php.sharedIndexes-PS-252.27397.112" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d567e425-58c1-449d-9278-09ed5e878507" name="Changes" comment="" />
+      <created>1762464045880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762464045880</updated>
+      <workItem from="1762464046947" duration="5501000" />
+      <workItem from="1762469556894" duration="651000" />
+      <workItem from="1762504767082" duration="13000" />
+      <workItem from="1762524071046" duration="21000" />
+      <workItem from="1762547439689" duration="338000" />
+      <workItem from="1762547788254" duration="7937000" />
+      <workItem from="1762695349335" duration="4927000" />
+      <workItem from="1762701050893" duration="4415000" />
+      <workItem from="1762718790959" duration="9120000" />
+      <workItem from="1762768242890" duration="373000" />
+      <workItem from="1762802148725" duration="4059000" />
+      <workItem from="1762810753509" duration="5401000" />
+      <workItem from="1762860127258" duration="13690000" />
+      <workItem from="1762879781849" duration="4116000" />
+      <workItem from="1762889836234" duration="11429000" />
+      <workItem from="1762936364653" duration="19000" />
+      <workItem from="1762942344261" duration="13000" />
+      <workItem from="1762976761128" duration="7454000" />
+      <workItem from="1763021783617" duration="15000" />
+      <workItem from="1763030823569" duration="19000" />
+      <workItem from="1763054578305" duration="813000" />
+      <workItem from="1763122643414" duration="15348000" />
+      <workItem from="1763164503383" duration="801000" />
+      <workItem from="1763211720739" duration="3069000" />
+      <workItem from="1763322960757" duration="4862000" />
+      <workItem from="1763370537568" duration="6000" />
+      <workItem from="1763376659502" duration="13000" />
+      <workItem from="1763381691490" duration="1691000" />
+      <workItem from="1763401198005" duration="5355000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f7e7db98-d5d5-416a-b29a-82c8d727c0d6" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="f7e7db98-d5d5-416a-b29a-82c8d727c0d6">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

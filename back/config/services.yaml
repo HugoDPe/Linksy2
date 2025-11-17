@@ -1,0 +1,9 @@
+parameters:
+    shopify_webhook_secret: '%env(SHOPIFY_WEBHOOK_SECRET)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+

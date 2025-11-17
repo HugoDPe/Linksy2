@@ -1,0 +1,5 @@
+import_shopify_product:
+  path: /api/shopify/import
+  controller: App\Controller\ShopifyImportController::import
+  methods: [POST]
+

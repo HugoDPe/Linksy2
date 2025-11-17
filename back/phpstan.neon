@@ -1,0 +1,32 @@
+includes: []
+parameters:
+  level: 5
+  paths:
+    - src
+  tmpDir: var/phpstan
+  autoload_files:
+    - vendor/autoload.php
+  ignoreErrors:
+    - '#Undefined class .*Symfony#'
+    - '#Property .environment. not found in App\\Kernel#'
+# Dependencies
+vendor/
+node_modules/
+
+# Cache / Logs
+var/
+back/var/
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Docker
+*.pid
+docker/data/**
+
+# Env files
+.env
+back/.env
+

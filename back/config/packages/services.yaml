@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  App\:
+    resource: '../../src/*'
+    exclude: '../../src/{Kernel.php,Domain/**/Model,Domain/**/ValueObject}'
+
+  # Shopify Client
+  App\Shared\Infrastructure\Shopify\ShopifyClient:
+    arguments:
+      $shopifyApiUrl: '%env(SHOPIFY_API_URL)%'
+      $shopifyApiAccessToken: '%env(SHOPIFY_API_ACCESS_TOKEN)%'
+      $logger: '@monolog.logger.shopify'
+

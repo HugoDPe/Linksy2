@@ -1,0 +1,17 @@
+monolog:
+    channels: ['shopify']
+    handlers:
+        main:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            level: info
+            channels: ["!event"]
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine"]
+        shopify:
+            type: stream
+            path: '%kernel.logs_dir%/shopify.log'
+            level: debug
+            channels: [shopify]

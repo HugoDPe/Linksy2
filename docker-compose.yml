@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  # ============================================
+  # API Symfony (avec Nginx intégré)
+  # ============================================
+  api:
+    build: ./back
+    command: [ "php", "-S", "0.0.0.0:8000", "-t", "public", "public/index.php" ]
+    container_name: linksy_api
+    env_file:
+      - docker/env/api.env
+    volumes:
+      - ./back:/var/www/html
+    networks:
+      - linksy
+    ports: [ "8000:8000" ]
+
+
+  # ============================================
+  # Front Vue.js
+  # ============================================
+  front:
+    build: ./front
+    image: node:20
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    env_file:
+      - docker/env/front.env
+    volumes:
+      - ./front:/app
+    container_name: linksy_front
+    ports: [ "5173:5173" ]
+    depends_on:
+      - api
+    networks:
+      - linksy
+
+  scraper:
+    build: ./scraper
+    image: node:20
+    working_dir: /app
+    command: npm run start
+    env_file:
+      - docker/env/scraper.env
+    volumes:
+      - ./scraper:/app
+    container_name: linksy_scraper
+    ports: [ "3000:3000" ]
+    depends_on:
+      - front
+    networks:
+      - linksy
+
+volumes:
+  db_data:
+
+networks:
+  linksy:
+    external: true
+

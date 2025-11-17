@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="back/vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         failOnRisky="true"
+         failOnWarning="false"
+>
+    <!-- Exécution maintenant possible depuis la racine du repo: utiliser --configuration back/phpunit.xml.dist ou laisser phpunit détecter ce fichier. -->
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">back/tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Functional">
+            <directory suffix="Test.php">back/tests/Functional</directory>
+        </testsuite>
+    </testsuites>
+    <coverage>
+        <include>
+            <directory>back/src</directory>
+        </include>
+        <exclude>
+            <directory>back/vendor</directory>
+            <directory>back/tests</directory>
+        </exclude>
+    </coverage>
+    <php>
+        <env name="APP_ENV" value="test"/>
+        <env name="APP_DEBUG" value="0"/>
+    </php>
+</phpunit>
