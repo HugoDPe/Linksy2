@@ -15,3 +15,13 @@ services:
       $shopifyApiAccessToken: '%env(SHOPIFY_API_ACCESS_TOKEN)%'
       $logger: '@monolog.logger.shopify'
 
+  App\Shared\Infrastructure\Sellsy\SellsyAccessTokenClient:
+    arguments:
+      $sellsyAccessTokenUrl: '%env(SELLSY_ACCESS_TOKEN_URL)%'
+      $sellsyApiKey: '%env(SELLSY_API_KEY)%'
+      $sellsyApiSecret: '%env(SELLSY_API_SECRET)%'
+
+  App\Shared\Infrastructure\Sellsy\SellsyClient:
+    arguments:
+      $sellsyApiUrl: '%env(SELLSY_API_URL)%'
+

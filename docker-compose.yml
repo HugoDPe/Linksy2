@@ -6,16 +6,14 @@ services:
   # ============================================
   api:
     build: ./back
-    command: [ "php", "-S", "0.0.0.0:8000", "-t", "public", "public/index.php" ]
     container_name: linksy_api
     env_file:
-      - docker/env/api.env
+      - back/.env
     volumes:
       - ./back:/var/www/html
     networks:
       - linksy
     ports: [ "8000:8000" ]
-
 
   # ============================================
   # Front Vue.js
@@ -55,7 +53,7 @@ services:
 volumes:
   db_data:
 
+
 networks:
   linksy:
     external: true
-

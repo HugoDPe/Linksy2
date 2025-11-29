@@ -30,7 +30,6 @@ pnpm-debug.log*
 Thumbs.db
 
 # Environnement
-.env
+../.env
 .env.local
 .env.*.local
-

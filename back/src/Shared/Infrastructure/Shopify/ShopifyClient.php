@@ -25,13 +25,39 @@ final class ShopifyClient implements ShopifyClientInterface
         $this->loadAllVariants();
     }
 
+    public function getAllProducts(): array
+    {
+        $products = [];
+        $endpoint = sprintf('%s/admin/api/2024-10/products.json?limit=250&fields=id,title,variants', $this->shopifyApiUrl);
+
+        do {
+            $response = $this->httpClient->request('GET', $endpoint, [
+                'headers' => ['X-Shopify-Access-Token' => $this->shopifyApiAccessToken],
+            ]);
+
+            $data = $response->toArray();
+            $products = array_merge($products, $data['products'] ?? []);
+
+            // Récupère l’URL de la page suivante via les headers
+            $linkHeader = $response->getHeaders()['link'][0] ?? null;
+            $endpoint = null;
+
+            if ($linkHeader && preg_match('/<(.*?)>; rel="next"/', $linkHeader, $matches)) {
+                $endpoint = $matches[1];
+            }
+
+        } while ($endpoint);
+
+        return $products;
+    }
+
     public function loadAllVariants(): void
     {
         $this->variantsCache = [];
         $sinceId = null;
         do {
             $query = [
-                'fields' => 'id,variants',
+                'fields' => 'id,variants,vendor',
                 'limit' => 250
             ];
             if ($sinceId !== null) {

@@ -1,7 +1,7 @@
 FROM php:8.3-fpm-alpine
 
 # Installation des dépendances système et Nginx
-RUN apk add --no-cache git unzip libzip-dev icu-dev oniguruma-dev openssl-dev rabbitmq-c-dev linux-headers $PHPIZE_DEPS \
+RUN apk add --no-cache git unzip libzip-dev icu-dev oniguruma-dev openssl-dev rabbitmq-c-dev linux-headers inotify-tools $PHPIZE_DEPS \
     && pecl install redis amqp \
     && docker-php-ext-enable redis amqp \
     && docker-php-ext-install pdo pdo_mysql intl sockets \
@@ -21,6 +21,12 @@ COPY . .
 # Permissions
 RUN chown -R www-data:www-data /var/www/html
 
+# Configuration du script d'entrée pour auto-reload
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 9000
+
+CMD ["/usr/local/bin/docker-entrypoint.sh"]
 
 
