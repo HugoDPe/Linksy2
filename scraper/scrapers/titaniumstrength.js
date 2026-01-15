@@ -98,7 +98,8 @@ function extractImages($, html) {
         .map(url => url.split('?')[0]) // Nettoyer les query params
         .filter(url =>
             !/data:image|logo|placeholder|\.pdf|\/icon\//.test(url) &&
-            url.includes('/media/catalog/product/')
+            url.includes('/media/catalog/product/') &&
+            !/\/cache\//i.test(url) // Exclure les images provenant d'un dossier "cache"
         )
         .slice(0, 10);
 }
@@ -128,6 +129,15 @@ function extractDescription($) {
         const $part = cheerio.load(part);
         // retirer les liens HTML pour garder le texte propre
         $part('a').each((_, el) => $part(el).replaceWith($part(el).text()));
+
+        // Supprimer les lignes "fabricant" du tableau de spécifications
+        $part('tr').each((_, tr) => {
+            const rowText = $part(tr).text().toLowerCase();
+            if (rowText.includes('fabricant')) {
+                $part(tr).remove();
+            }
+        });
+
         let cleanHtml = $part.html() || '';
 
         if (index === 0) { // Ne couper que la description principale
@@ -194,6 +204,16 @@ function extractAttributesOverview($) {
     }
 
     if (!found || !found.length) return '';
+
+    // Supprimer les lignes 'fabricant' si présentes dans le tableau de spécifications
+    try {
+        found.find('tr').each((_, tr) => {
+            const rowText = $(tr).text().toLowerCase();
+            if (rowText.includes('fabricant')) {
+                $(tr).remove();
+            }
+        });
+    } catch (e) { /* noop */ }
 
     // Extraire paragraphes si présents
     const paragraphs = [];
@@ -273,10 +293,30 @@ export async function scrapeTitaniumStrength(page) {
             description = attributesOverview + '\n\n' + description;
         }
 
-        // Remplacements de marque
-        const brandRegex = /Titanium\s+Strength/gi;
-        title = title.replace(brandRegex, 'RAKK').replace(/Titanium/gi, 'RAKK');
-        description = description.replace(brandRegex, 'RAKK').replace(/Titanium/gi, 'RAKK');
+        // Suppression de la marque (en préservant les URLs d'images)
+        const removeBrand = (text) => {
+            // Protéger les URLs titaniumstrength.fr en les remplaçant temporairement
+            const urlPlaceholders = [];
+            let protectedText = text.replace(/https?:\/\/[^\s"'<>]*titaniumstrength\.fr[^\s"'<>]*/gi, (match) => {
+                urlPlaceholders.push(match);
+                return `__URL_PLACEHOLDER_${urlPlaceholders.length - 1}__`;
+            });
+            // Supprimer les mentions de la marque (prendre en compte variantes sans espace / fautes)
+            protectedText = protectedText
+                .replace(/de\s+Titanium\s*Strength\s*/gi, '')
+                .replace(/Titanium\s*Strength\s*/gi, '')
+                .replace(/TitaniumStrength\s*/gi, '')
+                .replace(/TitaniumStrengh\s*/gi, '')
+                .replace(/TitaniumStrenght\s*/gi, '')
+                .replace(/Titanium\s*/gi, '');
+            // Restaurer les URLs
+            urlPlaceholders.forEach((url, index) => {
+                protectedText = protectedText.replace(`__URL_PLACEHOLDER_${index}__`, url);
+            });
+            return protectedText.trim();
+        };
+        title = removeBrand(title);
+        description = removeBrand(description);
 
         console.log(`   📌 Titre: ${title.substring(0, 50)}`);
         if (basePrice == null) {
@@ -305,7 +345,7 @@ export async function scrapeTitaniumStrength(page) {
             }],
             variantsCount: 1,
             sourceUrl: url,
-            supplier: 'TitaniumStrength',
+            supplier: 'GymCompany',
             metadata: {
                 availability: 'En stock',
                 oldPrice: oldPrice || null,

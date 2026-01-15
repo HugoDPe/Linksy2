@@ -11,6 +11,8 @@ final class ShopifyClient implements ShopifyClientInterface
 {
     private string $shopifyApiAccessToken;
 
+    private string $shopifyApiDeliveryAccessToken;
+
     private array $variantsCache = [];
     private bool $variantsLoaded = false;
     private ?int $locationId = null;
@@ -19,16 +21,18 @@ final class ShopifyClient implements ShopifyClientInterface
         private HttpClientInterface $httpClient,
         private LoggerInterface $logger,
         private string $shopifyApiUrl,
-        string $shopifyApiAccessToken
+        string $shopifyApiAccessToken,
+        string $shopifyApiDeliveryAccessToken
     ) {
         $this->shopifyApiAccessToken = trim($shopifyApiAccessToken);
         $this->loadAllVariants();
+        $this->shopifyApiDeliveryAccessToken = trim($shopifyApiDeliveryAccessToken);
     }
 
     public function getAllProducts(): array
     {
         $products = [];
-        $endpoint = sprintf('%s/admin/api/2024-10/products.json?limit=250&fields=id,title,variants', $this->shopifyApiUrl);
+        $endpoint = sprintf('%s/admin/api/2024-10/products.json?limit=250&fields=id,vendor,title,variants', $this->shopifyApiUrl);
 
         do {
             $response = $this->httpClient->request('GET', $endpoint, [
@@ -326,59 +330,6 @@ final class ShopifyClient implements ShopifyClientInterface
      * @param string[] $supplierReferences
      * @return array [reference => variant Shopify]
      */
-    public function mapSupplierReferences(array $supplierReferences): array
-    {
-        if (!$this->variantsLoaded) {
-            $this->loadAllVariants();
-        }
-        // On récupère tous les SKUs Shopify en une seule fois
-        $shopifySkus = array_keys($this->variantsCache);
-        // On fait le mapping entre les références fournisseur et les variants Shopify
-        $mapping = [];
-        foreach ($supplierReferences as $ref) {
-            if (in_array($ref, $shopifySkus, true)) {
-                $variant = $this->variantsCache[$ref];
-                // Activation de l'inventory_management si besoin
-                if (($variant['inventory_management'] ?? null) !== 'shopify') {
-                    $variantId = $variant['id'];
-                    $url = sprintf('%s/admin/api/2024-10/variants/%s.json', $this->shopifyApiUrl, $variantId);
-                    $options = [
-                        'headers' => ['X-Shopify-Access-Token' => $this->shopifyApiAccessToken],
-                        'json' => [
-                            'variant' => [
-                                'id' => $variantId,
-                                'inventory_management' => 'shopify'
-                            ]
-                        ]
-                    ];
-                    $retry = 0;
-                    do {
-                        try {
-                            $response = $this->httpClient->request('PUT', $url, $options);
-                            if ($response->getStatusCode() === 429) {
-                                sleep(3);
-                                $retry++;
-                                continue;
-                            }
-                            $data = $response->toArray();
-                            if (($data['variant']['inventory_management'] ?? null) === 'shopify') {
-                                $variant['inventory_management'] = 'shopify';
-                                $this->variantsCache[$ref] = $variant;
-                            } else {
-                                continue 2;
-                            }
-                        } catch (\Exception $e) {
-                            sleep(3);
-                            $retry++;
-                        }
-                    } while ($retry < 3);
-                    usleep(300000); // 300ms entre chaque activation
-                }
-                $mapping[$ref] = $variant;
-            }
-        }
-        return $mapping;
-    }
 
     /**
      * Crée un nouveau produit sur Shopify
@@ -442,7 +393,7 @@ final class ShopifyClient implements ShopifyClientInterface
                     'tags' => implode(', ', $productData['tags'] ?? []),
                     'variants' => $variants,
                     'images' => $images,
-                    'status' => 'draft' // Créé en brouillon par sécurité
+                    'status' => 'draft'
                 ]
             ];
 
@@ -588,6 +539,9 @@ final class ShopifyClient implements ShopifyClientInterface
                             }
                         }
                     }
+                    if ($productData['supplier'] === 'GymCompany') {
+                        $this->addVariantsToShippingProfile('118983917861', $createdProductId);
+                    }
                 } catch (\Exception $e) {
                     $this->logger->warning('Error while associating variant images', ['error' => $e->getMessage()]);
                 }
@@ -605,5 +559,115 @@ final class ShopifyClient implements ShopifyClientInterface
             ]);
             throw $e;
         }
+    }
+
+
+    public function getProductsFromDeliveryProfile(string $deliveryProfileGid): array
+    {
+        //dump($this->shopifyApiDeliveryAccessToken);die;
+        $query = <<<GRAPHQL
+        query getProfileProducts(\$id: ID!) {
+          deliveryProfile(id: \$id) {
+            id
+            name
+            profileItems(first: 250) {
+              edges {
+                node {
+                  product {
+                    id
+                    title
+                  }
+                  variants(first: 15) {
+                    edges {
+                      node {
+                        id
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    GRAPHQL;
+
+        $response = $this->httpClient->request('POST', "{$this->shopifyApiUrl}/admin/api/2025-01/graphql.json", [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'X-Shopify-Access-Token' => $this->shopifyApiDeliveryAccessToken,
+            ],
+            'json' => [
+                'query' => $query,
+                'variables' => [
+                    'id' => "gid://shopify/DeliveryProfile/".$deliveryProfileGid
+                ]
+            ],
+        ]);
+
+        return $response->toArray(false);
+    }
+
+    public function addVariantsToShippingProfile(
+        string $deliveryProfileGid,
+        int $productId,
+    ) {
+
+        $variantsResponse = $this->httpClient->request(
+            'GET',
+            "{$this->shopifyApiUrl}/admin/api/2024-01/products/{$productId}/variants.json",
+            [
+                'headers' => [
+                    'X-Shopify-Access-Token' => $this->shopifyApiDeliveryAccessToken,
+                ],
+            ]
+        );
+
+        $variants = $variantsResponse->toArray()['variants'];
+
+        if (empty($variants)) {
+            return;
+        }
+
+        $variantIds = array_map(
+            fn ($variant) => 'gid://shopify/ProductVariant/'.$variant['id'],
+            $variants
+        );
+
+        $query = <<<'GRAPHQL'
+mutation deliveryProfileUpdate($id: ID!, $variants: [ID!]!) {
+  deliveryProfileUpdate(
+    id: $id,
+    profile: {
+      variantsToAssociate: $variants
+    }
+  ) {
+    profile {
+      id
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+GRAPHQL;
+
+        $this->httpClient->request('POST',
+            sprintf('%s/admin/api/2024-10/graphql.json', $this->shopifyApiUrl),
+            [
+                'headers' => [
+                    'X-Shopify-Access-Token' => $this->shopifyApiDeliveryAccessToken,
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'query' => $query,
+                    'variables' => [
+                        'id' => 'gid://shopify/DeliveryProfile/'.$deliveryProfileGid,
+                        'variants' => $variantIds,
+                    ],
+                ],
+            ]
+        );
     }
 }

@@ -13,6 +13,7 @@ services:
     arguments:
       $shopifyApiUrl: '%env(SHOPIFY_API_URL)%'
       $shopifyApiAccessToken: '%env(SHOPIFY_API_ACCESS_TOKEN)%'
+      $shopifyApiDeliveryAccessToken: '%env(SHOPIFY_API_DELIVERY_ACCESS_TOKEN)%'
       $logger: '@monolog.logger.shopify'
 
   App\Shared\Infrastructure\Sellsy\SellsyAccessTokenClient:

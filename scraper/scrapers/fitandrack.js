@@ -584,7 +584,7 @@ export async function scrapeFitAndRack(page) {
     variants: variants,
     variantsCount: variants.length,
     sourceUrl: page.url(),
-    supplier: 'FitAndRack',
+    supplier: 'Fit and rack',
     metadata: {
       odooTemplateId: baseData.productTemplateId,
       odooProductId: baseData.productId,

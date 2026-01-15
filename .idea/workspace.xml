@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567e425-58c1-449d-9278-09ed5e878507" name="Changes" comment="" />
+    <list default="true" id="d567e425-58c1-449d-9278-09ed5e878507" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/copilotDiffState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilotDiffState.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/back/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/config/packages/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back/config/packages/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/Shared/Infrastructure/Sellsy/SellsyClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Shared/Infrastructure/Sellsy/SellsyClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/Shared/Infrastructure/Shopify/ShopifyClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/Shared/Infrastructure/Shopify/ShopifyClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraper/scrapers/fitandrack.js" beforeDir="false" afterPath="$PROJECT_DIR$/scraper/scrapers/fitandrack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraper/scrapers/titaniumstrength.js" beforeDir="false" afterPath="$PROJECT_DIR$/scraper/scrapers/titaniumstrength.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +26,9 @@
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="f6bf8f04-b588-4eaf-8331-21b09dad0265" />
     </execution>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="7727" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -144,6 +158,11 @@
       <path value="$PROJECT_DIR$/back/vendor/doctrine/migrations" />
       <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/back/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/back/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/back/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/back/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/back/vendor/markbaker/matrix" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -170,13 +189,14 @@
     "PHPUnit.tests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm": "Docker",
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/hugo/Bureau/perso-www/Linksy2/back/config/routes",
+    "last_opened_file_path": "/home/hugo/Bureau/perso-www/Linksy2/back/var/data",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -196,11 +216,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/back/var/data" />
+      <recent name="$PROJECT_DIR$/back/public" />
       <recent name="$PROJECT_DIR$/back/config/routes" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/scraper" />
-      <recent name="$PROJECT_DIR$/docker/env" />
-      <recent name="$PROJECT_DIR$/docker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -287,8 +307,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.27397.112" />
-        <option value="bundled-php-predefined-a98d8de5180a-b35feea871ed-com.jetbrains.php.sharedIndexes-PS-252.27397.112" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.257" />
       </set>
     </attachedChunks>
   </component>
@@ -327,7 +346,17 @@
       <workItem from="1763370537568" duration="6000" />
       <workItem from="1763376659502" duration="13000" />
       <workItem from="1763381691490" duration="1691000" />
-      <workItem from="1763401198005" duration="5355000" />
+      <workItem from="1763401198005" duration="6949000" />
+      <workItem from="1764105257737" duration="4042000" />
+      <workItem from="1764434323759" duration="11330000" />
+      <workItem from="1764506814230" duration="2207000" />
+      <workItem from="1764578618929" duration="31000" />
+      <workItem from="1764664500425" duration="50000" />
+      <workItem from="1764672312362" duration="104000" />
+      <workItem from="1765041934355" duration="699000" />
+      <workItem from="1765885102050" duration="2196000" />
+      <workItem from="1766171828889" duration="2485000" />
+      <workItem from="1768502070194" duration="6770000" />
     </task>
     <servers />
   </component>

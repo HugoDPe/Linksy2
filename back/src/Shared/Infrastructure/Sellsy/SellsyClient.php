@@ -82,4 +82,21 @@ class SellsyClient
             ]
         ]);
     }
+
+    public function updateItemPurchagePrice(int $itemId, float $price): void
+    {
+        try {
+
+        $this->httpClient->request('PUT', $this->sellsyApiUrl . '/items/' . $itemId, [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->getAccessToken()
+            ],
+            'json' => [
+                'purchase_amount' => (string)$price
+            ]
+        ]);
+        } catch (\Exception $e) {
+            dump($e);die;
+        }
+    }
 }
